@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://c40dwt4sjx5lx"]
+
+[ext_resource type="Script" uid="uid://tasdob5yl6vx" path="res://level_2.gd" id="1_0bpjf"]
+
+[node name="Level2" type="Node2D" unique_id=1377083540]
+script = ExtResource("1_0bpjf")
+
+[node name="PlayerTextBoard" type="Label" parent="." unique_id=1959025666]
+offset_right = 250.0
+offset_bottom = 250.0
+theme_override_font_sizes/font_size = 24
+vertical_alignment = 1
+text_overrun_behavior = 1
+
+[node name="HouseTextBoard" type="Label" parent="." unique_id=548769558]
+offset_left = 459.0
+offset_top = 1.0
+offset_right = 709.0
+offset_bottom = 251.0
+theme_override_font_sizes/font_size = 24
+vertical_alignment = 1
+
+[node name="Draw" type="Button" parent="." unique_id=1249759319]
+offset_left = 251.0
+offset_top = 3.0
+offset_right = 456.0
+offset_bottom = 80.0
+text = "Puxar mais uma carta"
+
+[node name="Skip" type="Button" parent="." unique_id=704867098]
+offset_left = 251.0
+offset_top = 84.0
+offset_right = 456.0
+offset_bottom = 161.0
+text = "Passar a vez"
+
+[node name="Proceed" type="Button" parent="." unique_id=421791752]
+offset_left = 250.0
+offset_top = 166.0
+offset_right = 350.0
+offset_bottom = 243.0
+text = "Continuar"
+
+[node name="Restart" type="Button" parent="." unique_id=209429051]
+offset_left = 356.0
+offset_top = 168.0
+offset_right = 456.0
+offset_bottom = 245.0
+text = "Reiniciar"
+
+[node name="DrawnCardText" type="Label" parent="." unique_id=2047265376]
+offset_left = 202.0
+offset_top = 248.0
+offset_right = 502.0
+offset_bottom = 298.0
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1
+
+[node name="TextAnnouncer" type="Label" parent="." unique_id=1879277844]
+offset_left = 202.0
+offset_top = 337.0
+offset_right = 502.0
+offset_bottom = 387.0
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1
+
+[node name="BetResult" type="Label" parent="." unique_id=522597784]
+offset_top = 400.0
+offset_right = 709.0
+offset_bottom = 520.0
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Peek" type="Button" parent="." unique_id=635193260]
+offset_left = 720.0
+offset_top = 3.0
+offset_right = 920.0
+offset_bottom = 80.0
+text = "Espiar cartas da casa"
+
+[connection signal="pressed" from="Draw" to="." method="_on_draw_pressed"]
+[connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]
+[connection signal="pressed" from="Proceed" to="." method="_on_proceed_pressed"]
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Peek" to="." method="_on_peek_pressed"]

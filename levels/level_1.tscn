@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://dhprh70r015wg"]
+
+[ext_resource type="Script" uid="uid://dkt3mig0dd0sq" path="res://level_1.gd" id="1_bet"]
+[ext_resource type="Texture2D" uid="uid://cr1343i6mthpi" path="res://assets/pix_qr.png" id="2_qr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qr"]
+content_margin_left = 28.0
+content_margin_top = 28.0
+content_margin_right = 28.0
+content_margin_bottom = 28.0
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Level1" type="Control" unique_id=1262754670]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bet")
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=1860427920]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Columns" type="HBoxContainer" parent="Margin" unique_id=610539627]
+layout_mode = 2
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="Left" type="VBoxContainer" parent="Margin/Columns" unique_id=1565643363]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Title" type="Label" parent="Margin/Columns/Left" unique_id=1347957741]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Betzinha da UFC"
+horizontal_alignment = 1
+
+[node name="Slogan" type="Label" parent="Margin/Columns/Left" unique_id=342502879]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Aqui está perdendo muito, venha já perder +!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="FinePrint" type="Label" parent="Margin/Columns/Left" unique_id=1025592925]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "*Bônus extras para TAEs e docentes"
+horizontal_alignment = 1
+
+[node name="Stats" type="Label" parent="Margin/Columns/Left" unique_id=1936796279]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="Bonus" type="Label" parent="Margin/Columns/Left" unique_id=1731413201]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ValueRow" type="HBoxContainer" parent="Margin/Columns/Left" unique_id=56244238]
+layout_mode = 2
+alignment = 1
+
+[node name="ValueLabel" type="Label" parent="Margin/Columns/Left/ValueRow" unique_id=1890723177]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Valor da aposta:"
+
+[node name="Value" type="SpinBox" parent="Margin/Columns/Left/ValueRow" unique_id=1614710792]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 1000000.0
+value = 10.0
+update_on_text_changed = true
+prefix = "R$"
+
+[node name="GeneratePix" type="Button" parent="Margin/Columns/Left" unique_id=1243327301]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Gerar Pix"
+
+[node name="Withdraw" type="Button" parent="Margin/Columns/Left" unique_id=669821394]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Sacar"
+
+[node name="Message" type="Label" parent="Margin/Columns/Left" unique_id=6197188]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="PixPanel" type="VBoxContainer" parent="Margin/Columns" unique_id=316483198]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="PixInfo" type="Label" parent="Margin/Columns/PixPanel" unique_id=452937676]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="QRFrame" type="PanelContainer" parent="Margin/Columns/PixPanel" unique_id=1937583369]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_qr")
+
+[node name="QRCode" type="TextureRect" parent="Margin/Columns/PixPanel/QRFrame" unique_id=542892542]
+texture_filter = 1
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("2_qr")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Paid" type="Button" parent="Margin/Columns/PixPanel" unique_id=314217332]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Confia aí que eu já paguei kkk"
+
+[connection signal="pressed" from="Margin/Columns/Left/GeneratePix" to="." method="_on_generate_pix_pressed"]
+[connection signal="pressed" from="Margin/Columns/Left/Withdraw" to="." method="_on_withdraw_pressed"]
+[connection signal="pressed" from="Margin/Columns/PixPanel/Paid" to="." method="_on_paid_pressed"]
